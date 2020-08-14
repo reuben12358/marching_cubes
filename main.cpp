@@ -1,7 +1,7 @@
 #include <iostream>
 #include <utility>      // for pair
 #include <vector>       // for vector
-#include <cmath>        // for pow
+#include <cmath>        // for pow and abs
 
 using namespace std;
 
@@ -82,6 +82,15 @@ class lookup {
         lookup() {};
         lookup(vector<pair<int, int>>x, vector<pair<int, int>>y, vector<pair<int, int>>z) {X = x; Y = y; Z = z;}
 };
+
+float interpolate (float v1, float v2) {
+    if (v1 > v2) {
+        return abs(v2)/(abs(v1) + abs(v2));
+    }
+    else {
+        return abs(v1)/(abs(v1) + abs(v2));
+    }
+}
 
 vector<lookup> table = {
 /*0*/   lookup(),
@@ -297,42 +306,42 @@ void rune(int lookup_index, vector<int> vertex) {
 
     for (int a = 0; a < cube.X.size(); ++a) {
         if (cube.X.at(a).first == 0) {
-            x = point(0.5, 0, 0);            
+            x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 0, 0);            
         }
         else if (cube.X.at(a).first == 3) {
-            x = point(0.5, 0, 1);
+            x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 0, 1);
         }
         else if (cube.X.at(a).first == 4) {
-            x = point(0.5, 1, 0);            
+            x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 1, 0);            
         }
         else {
-            x = point(0.5, 1, 1);            
+            x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 1, 1);            
         }
         for (int b = 0; b < cube.Y.size(); ++b) {
             if (cube.Y.at(b).first == 0) {
-                y = point(0, 0.5, 0);            
+                y = point(0, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 0);            
             }
             else if (cube.Y.at(b).first == 1) {
-                y = point(1, 0.5, 0);
+                y = point(1, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 0);
             }
             else if (cube.Y.at(b).first == 2) {
-                y = point(1, 0.5, 1);            
+                y = point(1, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 1);            
             }
             else {
-                y = point(0, 0.5, 1);            
+                y = point(0, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 1);            
             }
             for (int c = 0; c < cube.Z.size(); ++c) {
                 if (cube.Z.at(c).first == 0) {
-                    z = point(0, 0, 0.5);
+                    z = point(0, 0, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
                 }
                 else if (cube.Z.at(c).first == 1) {
-                    z = point(1, 0, 0.5);
+                    z = point(1, 0, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
                 }
                 else if (cube.Z.at(c).first == 5) {
-                    z = point(1, 1, 0.5);
+                    z = point(1, 1, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
                 }
                 else {
-                    z = point(0, 1, 0.5);
+                    z = point(0, 1, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
                 }
                 cube.triangle_pts.push_back(triangle(x, y, z));
             }
