@@ -379,7 +379,7 @@ void rune(int lookup_index, vector<int> vertex) {
 int main() {
     cout << "hello world" << endl;
 
-    vector <int> sample = {1,-2,3,4,5,6,7,8};
+    vector <int> sample = {1,-2,-3,-2,-2,-6,-7,-8};
 
     int lookup_index = 0;
 
