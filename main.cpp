@@ -123,9 +123,9 @@ vector<lookup> table = {
 /*25*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5)}, {make_pair(3, 7)}, {make_pair(4, 7)}),
 
 /*26*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*27*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*28*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*29*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*27*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*28*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*29*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*30*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*31*/  lookup({make_pair(4, 5)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(4, 7)}),
@@ -144,10 +144,10 @@ vector<lookup> table = {
 /*40*/  lookup({make_pair(4, 5), make_pair(2, 3)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(5, 6)}),
 
 /*41*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*42*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*43*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*44*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*45*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*42*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*43*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*44*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*45*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*46*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*47*/  lookup({make_pair(4, 5)}, {make_pair(0, 4), make_pair(3, 7), make_pair(2, 6)}, {make_pair(5, 6)}),
@@ -156,20 +156,20 @@ vector<lookup> table = {
 /*50*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
 
 /*51*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*52*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*53*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*52*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*53*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*54*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*55*/  lookup({make_pair(3, 2)}, {make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6), make_pair(4, 7)}),
 
 /*56*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*57*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*57*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*58*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*59*/  lookup({make_pair(3, 2)}, {make_pair(3, 7)}, {make_pair(4, 7), make_pair(5, 6), make_pair(1, 2)}),
 
 /*60*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*61*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*61*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*62*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*63*/  lookup({}, {make_pair(3, 7), make_pair(2, 6)}, {make_pair(4, 7), make_pair(5, 6)}),
@@ -190,7 +190,7 @@ vector<lookup> table = {
 /*72*/  lookup({make_pair(2, 3), make_pair(6, 7)}, {make_pair(3, 7), make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6)}),
 
 /*73*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*74*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*74*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*75*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*76*/  lookup({make_pair(7, 6)}, {make_pair(3, 7)}, {make_pair(5, 6), make_pair(1, 2), make_pair(0, 3)}),
@@ -202,19 +202,19 @@ vector<lookup> table = {
 /*80*/  lookup({make_pair(4, 5), make_pair(6, 7)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(4, 7), make_pair(5, 6)}),
 
 /*81*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*82*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*83*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*84*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*85*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*86*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*87*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*88*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*89*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*90*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*91*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*92*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*93*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*94*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*82*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*83*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*84*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*85*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*86*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*87*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*88*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*89*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*90*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*91*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*92*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*93*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*94*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*95*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*96*/  lookup({make_pair(4, 5), make_pair(6, 7)}, {make_pair(1, 5), make_pair(2, 6)}, {}),
@@ -229,14 +229,14 @@ vector<lookup> table = {
 
 /*101*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
-/*102*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {}, {}),
+/*102*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6), make_pair(4, 5)}, {}, {}),
 /*103*/ lookup({make_pair(3, 2), make_pair(7, 6), make_pair(4, 5)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
 
 /*104*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*105*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*106*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*107*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*108*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*105*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*106*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*107*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*108*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*109*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*110*/ lookup({make_pair(0, 1), make_pair(7, 6), make_pair(4, 5)}, {make_pair(3, 7)}, {make_pair(0, 3)}),
@@ -244,16 +244,16 @@ vector<lookup> table = {
 /*112*/ lookup({make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(4, 7)}),
 
 /*113*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*114*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*115*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*116*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*114*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*115*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
+/*116*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*117*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*118*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(0, 4)}, {make_pair(4, 7)}),
 /*119*/ lookup({make_pair(6, 7), make_pair(3, 2)}, {}, {make_pair(0, 3), make_pair(4, 7)}),
 
 /*120*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*121*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
+/*121*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 /*122*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
 
 /*123*/ lookup({make_pair(3, 2), make_pair(7, 6)}, {make_pair(2, 6), make_pair(3, 7)}, {make_pair(1, 2), make_pair(4, 7)}),
@@ -304,49 +304,101 @@ void rune(int lookup_index, vector<int> vertex) {
     cout << "cube.Y.size(): " << cube.Y.size() << endl;
     cout << "cube.Z.size(): " << cube.Z.size() << endl;
 
-    for (int a = 0; a < cube.X.size(); ++a) {
-        if (cube.X.at(a).first == 0) {
-            x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 0, 0);            
-        }
-        else if (cube.X.at(a).first == 3) {
-            x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 0, 1);
-        }
-        else if (cube.X.at(a).first == 4) {
-            x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 1, 0);            
-        }
-        else {
-            x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 1, 1);            
-        }
-        for (int b = 0; b < cube.Y.size(); ++b) {
-            if (cube.Y.at(b).first == 0) {
-                y = point(0, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 0);            
+    // adapt for cases where X, Y, Z are not present
+
+    if ((cube.X.size() > 0) && (cube.Y.size() > 0) && (cube.Z.size() > 0)) {
+        for (int a = 0; a < cube.X.size(); ++a) {
+            if (cube.X.at(a).first == 0) {
+                x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 0, 0);            
             }
-            else if (cube.Y.at(b).first == 1) {
-                y = point(1, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 0);
+            else if (cube.X.at(a).first == 3) {
+                x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 0, 1);
             }
-            else if (cube.Y.at(b).first == 2) {
-                y = point(1, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 1);            
+            else if (cube.X.at(a).first == 4) {
+                x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 1, 0);            
             }
             else {
-                y = point(0, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 1);            
+                x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 1, 1);            
             }
-            for (int c = 0; c < cube.Z.size(); ++c) {
-                if (cube.Z.at(c).first == 0) {
-                    z = point(0, 0, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
+            for (int b = 0; b < cube.Y.size(); ++b) {
+                if (cube.Y.at(b).first == 0) {
+                    y = point(0, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 0);            
                 }
-                else if (cube.Z.at(c).first == 1) {
-                    z = point(1, 0, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
+                else if (cube.Y.at(b).first == 1) {
+                    y = point(1, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 0);
                 }
-                else if (cube.Z.at(c).first == 5) {
-                    z = point(1, 1, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
+                else if (cube.Y.at(b).first == 2) {
+                    y = point(1, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 1);            
                 }
                 else {
-                    z = point(0, 1, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
+                    y = point(0, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 1);            
                 }
-                cube.triangle_pts.push_back(triangle(x, y, z));
+                for (int c = 0; c < cube.Z.size(); ++c) {
+                    if (cube.Z.at(c).first == 0) {
+                        z = point(0, 0, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
+                    }
+                    else if (cube.Z.at(c).first == 1) {
+                        z = point(1, 0, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
+                    }
+                    else if (cube.Z.at(c).first == 5) {
+                        z = point(1, 1, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
+                    }
+                    else {
+                        z = point(0, 1, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
+                    }
+                    cube.triangle_pts.push_back(triangle(x, y, z));
+                }
             }
         }
     }
+
+    // case of only X
+    else if (!cube.Y.size() && !cube.Z.size() && cube.X.size()) {
+        triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 0),
+                    point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 0, 1), 
+                    point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 1));
+        triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 0), 
+                    point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 1), 
+                    point(interpolate(vertex.at(cube.X.at(3).first), vertex.at(cube.X.at(3).second)), 1, 0));
+        cube.triangle_pts.push_back(t1);
+        cube.triangle_pts.push_back(t2); 
+    }    
+    
+    // case of only Y
+    else if (!cube.X.size() && !cube.Z.size() && cube.Y.size()) {
+        triangle t1(point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 0),
+                    point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 0), 
+                    point(1, interpolate(vertex.at(cube.Y.at(2).first), vertex.at(cube.Y.at(2).second)), 1));
+        triangle t2(point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 0), 
+                    point(1, interpolate(vertex.at(cube.Y.at(2).first), vertex.at(cube.Y.at(2).second)), 1), 
+                    point(0, interpolate(vertex.at(cube.Y.at(3).first), vertex.at(cube.Y.at(3).second)), 1));
+        cube.triangle_pts.push_back(t1);
+        cube.triangle_pts.push_back(t2); 
+    }    
+
+    // case of only Z, will have 2 unique cases, incomplete
+    else if (!cube.X.size() && !cube.Y.size() && cube.Z.size()) {
+        triangle t1(point(0, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                    point(1, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))), 
+                    point(1, 1, interpolate(vertex.at(cube.Z.at(2).first), vertex.at(cube.Z.at(2).second))));
+        triangle t2(point(0, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))), 
+                    point(1, 1, interpolate(vertex.at(cube.Z.at(2).first), vertex.at(cube.Z.at(2).second))), 
+                    point(0, 1, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+        cube.triangle_pts.push_back(t1);
+        cube.triangle_pts.push_back(t2); 
+    }
+
+    else if (!cube.X.size() && cube.Y.size() && cube.Z.size()) {
+
+    }
+    else if (!cube.Y.size() && cube.X.size() && cube.Z.size()) {
+        
+    }
+    else if (!cube.Z.size() && cube.X.size() && cube.Y.size()) {
+        
+    }
+    else continue;
+
     cout << "triangle_pts.size(): " << cube.triangle_pts.size() << endl;
 
     cout << "done interpolate\n";
