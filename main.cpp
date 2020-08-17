@@ -97,13 +97,13 @@ vector<lookup> table = {
 /*1*/   lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
 /*2*/   lookup({make_pair(0, 1)}, {make_pair(1, 5)}, {make_pair(1, 2)}), 
 /*3*/   lookup({}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(0, 3), make_pair(1, 2)}),
-/*4*/   lookup({make_pair(3, 2)}, {make_pair(6, 2)}, {make_pair(1, 2)}),
-/*5*/   lookup({make_pair(0, 1), make_pair(2, 3)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2)}),
+/*4*/   lookup({make_pair(3, 2)}, {make_pair(2, 6)}, {make_pair(1, 2)}),
+/*5*/   lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2)}),
 /*6*/   lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(1, 5), make_pair(2, 6)}, {}),
 /*7*/   lookup({make_pair(3, 2)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3)}),
 /*8*/   lookup({make_pair(3, 2)}, {make_pair(3, 7)}, {make_pair(0, 3)}),
 /*9*/   lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(0, 4), make_pair(3, 7)}, {}),
-/*10*/  lookup({make_pair(0, 1), make_pair(2, 3)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2)}),
+/*10*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2)}),
 /*11*/  lookup({make_pair(3, 2)}, {make_pair(0, 4), make_pair(1, 5), make_pair(3, 7)}, {make_pair(1, 2)}),
 /*12*/  lookup({}, {make_pair(3, 7), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2)}), 
 /*13*/  lookup({make_pair(0, 1)}, {make_pair(0, 4), make_pair(3, 7), make_pair(2, 6)}, {make_pair(1, 2)}),
@@ -113,156 +113,114 @@ vector<lookup> table = {
 /*17*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {}, {make_pair(0, 3), make_pair(4, 7)}),
 /*18*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(1, 2), make_pair(4, 7)}),
 /*19*/  lookup({make_pair(4, 5)}, {make_pair(1, 5)}, {make_pair(0, 3), make_pair(4, 7), make_pair(1, 2)}),
-/*20*/  lookup({make_pair(4, 5), make_pair(2, 3)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2)}),
-
-/*21*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*22*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*23*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*20*/  lookup({make_pair(4, 5), make_pair(3, 2)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2)}),
+/*21*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5)}, {make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7)}),
+/*22*/  lookup({make_pair(4, 5)}, {make_pair(1, 5)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7)}),
+/*23*/  lookup({make_pair(4, 5), make_pair(3, 2)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(4, 7)}),
 /*24*/  lookup({make_pair(3, 2), make_pair(4, 5)}, {make_pair(0, 4), make_pair(3, 7)}, {make_pair(0, 3), make_pair(4, 7)}),
 /*25*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5)}, {make_pair(3, 7)}, {make_pair(4, 7)}),
-
-/*26*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*27*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*28*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*29*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*30*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*26*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5)}, {make_pair(0, 4), make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7)}),
+/*27*/  lookup({make_pair(4, 5), make_pair(3, 2)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(1, 2), make_pair(4, 7)}),
+/*28*/  lookup({make_pair(4, 5)}, {make_pair(0, 4), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7)}),
+/*29*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {make_pair(2, 6), make_pair(3, 7)}, {make_pair(1, 2), make_pair(4, 7)}),
+/*30*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(4, 7)}),
 /*31*/  lookup({make_pair(4, 5)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(4, 7)}),
 /*32*/  lookup({make_pair(4, 5)}, {make_pair(1, 5)}, {make_pair(5, 6)}),
 /*33*/  lookup({make_pair(4, 5), make_pair(0, 1)}, {make_pair(1, 5), make_pair(0, 4)}, {make_pair(5, 6), make_pair(0, 3)}),
 /*34*/  lookup({make_pair(4, 5), make_pair(0, 1)}, {}, {make_pair(5, 6), make_pair(1, 2)}),
 /*35*/  lookup({make_pair(4, 5)}, {make_pair(0, 4)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),
-/*36*/  lookup({make_pair(4, 5), make_pair(2, 3)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(1, 2), make_pair(5, 6)}),
-
-/*37*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*36*/  lookup({make_pair(4, 5), make_pair(3, 2)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(1, 2), make_pair(5, 6)}),
+/*37*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),
 /*38*/  lookup({make_pair(0, 1), make_pair(4, 5), make_pair(3, 2)}, {make_pair(2, 6)}, {make_pair(5, 6)}),
-
-/*39*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
-/*40*/  lookup({make_pair(4, 5), make_pair(2, 3)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(5, 6)}),
-
-/*41*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*42*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*43*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*44*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*45*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*46*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*39*/  lookup({make_pair(3, 2), make_pair(4, 5)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6)}),
+/*40*/  lookup({make_pair(4, 5), make_pair(3, 2)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(5, 6)}),
+/*41*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5)}, {make_pair(0, 4), make_pair(3, 7), make_pair(1, 5)}, {make_pair(5, 6)}),
+/*42*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 4)}, {make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),
+/*43*/  lookup({make_pair(4, 5), make_pair(3, 2)}, {make_pair(0, 4), make_pair(3, 7)}, {make_pair(1, 2), make_pair(5, 6)}),
+/*44*/  lookup({make_pair(4, 5)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),
+/*45*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(1, 2), make_pair(5, 6)}),
+/*46*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(5, 6)}),
 /*47*/  lookup({make_pair(4, 5)}, {make_pair(0, 4), make_pair(3, 7), make_pair(2, 6)}, {make_pair(5, 6)}),
 /*48*/  lookup({}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(4, 7), make_pair(5, 6)}),        
 /*49*/  lookup({make_pair(0, 1)}, {make_pair(1, 5)}, {make_pair(0, 3), make_pair(4, 7), make_pair(5, 6)}),
 /*50*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
-
-/*51*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*52*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*53*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*54*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*51*/  lookup({}, {}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6), make_pair(4, 7)}),
+/*52*/  lookup({make_pair(3, 2)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(1, 2), make_pair(5, 6), make_pair(4, 7)}),
+/*53*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
+/*54*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(4, 7), make_pair(5, 6)}),
 /*55*/  lookup({make_pair(3, 2)}, {make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6), make_pair(4, 7)}),
-
-/*56*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*57*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*58*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*56*/  lookup({make_pair(3, 2)}, {make_pair(0, 4), make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3)}, make_pair(4, 7), make_pair(5, 6)),
+/*57*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(4, 7), make_pair(5, 6)}),
+/*58*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(0, 4), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
 /*59*/  lookup({make_pair(3, 2)}, {make_pair(3, 7)}, {make_pair(4, 7), make_pair(5, 6), make_pair(1, 2)}),
-
-/*60*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*61*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*62*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*60*/  lookup({}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6), make_pair(4, 7)}),
+/*61*/  lookup({make_pair(0, 1)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(4, 7), make_pair(5, 6), make_pair(1, 2)}),
+/*62*/  lookup({make_pair(0, 1)}, {make_pair(0, 4), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(4, 7), make_pair(5, 6)}),
 /*63*/  lookup({}, {make_pair(3, 7), make_pair(2, 6)}, {make_pair(4, 7), make_pair(5, 6)}),
 /*64*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-/*65*/  lookup({make_pair(0, 1), make_pair(6, 7)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6)}),
-/*66*/  lookup({make_pair(0, 1), make_pair(6, 7)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(2, 4), make_pair(5, 6)}),
-
-/*67*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
-/*68*/  lookup({make_pair(3, 2), make_pair(6, 7)}, {}, {make_pair(1, 2), make_pair(5, 6)}),
-
-/*69*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*65*/  lookup({make_pair(0, 1), make_pair(7, 6)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6)}),
+/*66*/  lookup({make_pair(0, 1), make_pair(7, 6)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(2, 4), make_pair(5, 6)}),
+/*67*/  lookup({make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),
+/*68*/  lookup({make_pair(3, 2), make_pair(7, 6)}, {}, {make_pair(1, 2), make_pair(5, 6)}),
+/*69*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(0, 4)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),        // nice
 /*70*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(1, 5)}, {make_pair(5, 6)}),
-
-/*71*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
-/*72*/  lookup({make_pair(2, 3), make_pair(6, 7)}, {make_pair(3, 7), make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6)}),
-
-/*73*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*74*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*75*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*71*/  lookup({make_pair(7, 6), make_pair(3, 2)}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(0, 3), make_pair(5, 6)}),
+/*72*/  lookup({make_pair(3, 2), make_pair(7, 6)}, {make_pair(3, 7), make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6)}),
+/*73*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(0, 4), make_pair(2, 6), make_pair(3, 7)}, {make_pair(5, 6)}),
+/*74*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),
+/*75*/  lookup({make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(1, 2), make_pair(5, 6)}),
 /*76*/  lookup({make_pair(7, 6)}, {make_pair(3, 7)}, {make_pair(5, 6), make_pair(1, 2), make_pair(0, 3)}),
-
-/*77*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*78*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*77*/  lookup({make_pair(0, 1), make_pair(7, 6)}, {make_pair(0, 4), make_pair(3, 7)}, {make_pair(5, 6), make_pair(1, 2)}),
+/*78*/  lookup({make_pair(0, 1), make_pair(7, 6)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(5, 6)}),
 /*79*/  lookup({make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(3, 7)}, {make_pair(5, 6)}),
-/*80*/  lookup({make_pair(4, 5), make_pair(6, 7)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(4, 7), make_pair(5, 6)}),
-
-/*81*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*82*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*83*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*84*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*85*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*86*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*87*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*88*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*89*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*90*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*91*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*92*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*93*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*94*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*95*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
-/*96*/  lookup({make_pair(4, 5), make_pair(6, 7)}, {make_pair(1, 5), make_pair(2, 6)}, {}),
-
-/*97*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*80*/  lookup({make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(4, 7), make_pair(5, 6)}),
+/*81*/  lookup({make_pair(0, 1), make_pair(4, 5), make_pair(7, 6)}, {make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6), make_pair(4, 7)}),
+/*82*/  lookup({make_pair(0, 1), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(1, 2), make_pair(5, 6), make_pair(4, 7)}),
+/*83*/  lookup({make_pair(4, 5), make_pair(7, 6)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6), make_pair(4, 7)}),
+/*84*/  lookup({make_pair(4, 5), make_pair(3, 2), make_pair(7, 6)}, {make_pair(0, 4)}, {make_pair(5, 6), make_pair(1, 2), make_pair(4, 7)}),
+/*85*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6), make_pair(4, 7)}),
+/*86*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(4, 7), make_pair(5, 6)}),
+/*87*/  lookup({make_pair(0, 1), make_pair(4, 5), make_pair(7, 6)}, {make_pair(1, 5)}, {make_pair(0, 3), make_pair(4, 7), make_pair(5, 6)}),
+/*88*/  lookup({make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(4, 7), make_pair(5, 6)}),
+/*89*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(2, 6), make_pair(3, 7)}, {make_pair(4, 7), make_pair(5, 6)}),
+/*90*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
+/*91*/  lookup({make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
+/*92*/  lookup({make_pair(7, 6)}, {make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
+/*93*/  lookup({make_pair(0, 1), make_pair(4, 5), make_pair(7, 6)}, {make_pair(3, 7)}, {make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
+/*94*/  lookup({make_pair(0, 1), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(4, 5), make_pair(7, 6)}),
+/*95*/  lookup({make_pair(4, 5), make_pair(7, 6)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(4, 7), make_pair(5, 6)}),
+/*96*/  lookup({make_pair(4, 5), make_pair(7, 6)}, {make_pair(1, 5), make_pair(2, 6)}, {}),
+/*97*/  lookup({make_pair(0, 1), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3)}),
 /*98*/  lookup({make_pair(0, 1), make_pair(4, 5), make_pair(7, 6)}, {make_pair(2, 6)}, {make_pair(1, 2)}),
-
-/*99*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*99*/  lookup({make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2)}),
 /*100*/ lookup({make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(1, 5)}, {make_pair(1, 2)}),
-
-/*101*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*101*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(0, 3), make_pair(1, 2)}),
 /*102*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6), make_pair(4, 5)}, {}, {}),
 /*103*/ lookup({make_pair(3, 2), make_pair(7, 6), make_pair(4, 5)}, {make_pair(0, 4)}, {make_pair(0, 3)}),
-
-/*104*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*105*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*106*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*107*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*108*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*109*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*104*/ lookup({make_pair(4, 5), make_pair(3, 2), make_pair(7, 6)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3)}),
+/*105*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {}),
+/*106*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2)}),
+/*107*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(3, 7)}, {make_pair(1, 2)}),
+/*108*/ lookup({make_pair(4, 5), make_pair(7, 6)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2)}),
+/*109*/ lookup({make_pair(0, 1), make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(3, 7)}, {make_pair(1, 2)}),
 /*110*/ lookup({make_pair(0, 1), make_pair(7, 6), make_pair(4, 5)}, {make_pair(3, 7)}, {make_pair(0, 3)}),
-/*111*/ lookup({make_pair(4, 5), make_pair(6, 7)}, {make_pair(0, 4), make_pair(3, 7)}, {}),
+/*111*/ lookup({make_pair(4, 5), make_pair(7, 6)}, {make_pair(0, 4), make_pair(3, 7)}, {}),
 /*112*/ lookup({make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(4, 7)}),
-
-/*113*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*114*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*115*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*116*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*117*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*113*/ lookup({make_pair(0, 1), make_pair(7, 6)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(4, 7)}),
+/*114*/ lookup({make_pair(0, 1), make_pair(7, 6)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(1, 2), make_pair(4, 7)}),
+/*115*/ lookup({make_pair(7, 6)}, {make_pair(2, 6)}, {make_pair(4, 7), make_pair(0, 3), make_pair(1, 2)}),
+/*116*/ lookup({make_pair(3, 2), make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(4, 7), make_pair(1, 2)}),
+/*117*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(1, 5)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7)}),
 /*118*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(0, 4)}, {make_pair(4, 7)}),
-/*119*/ lookup({make_pair(6, 7), make_pair(3, 2)}, {}, {make_pair(0, 3), make_pair(4, 7)}),
-
-/*120*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*121*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-/*122*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
+/*119*/ lookup({make_pair(7, 6), make_pair(3, 2)}, {}, {make_pair(0, 3), make_pair(4, 7)}),
+/*120*/ lookup({make_pair(7, 6), make_pair(3, 2)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(4, 7)}),
+/*121*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(4, 7)}),
+/*122*/ lookup({make_pair(0, 1), make_pair(3, 2), make_pair(7, 6)}, {make_pair(0, 4), make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7)}),
 /*123*/ lookup({make_pair(3, 2), make_pair(7, 6)}, {make_pair(2, 6), make_pair(3, 7)}, {make_pair(1, 2), make_pair(4, 7)}),
-
-/*124*/ lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(0, 3)}),        // skipped
-
-/*125*/ lookup({make_pair(0, 1), make_pair(6, 7)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(1, 2), make_pair(4, 7)}),
-/*126*/ lookup({make_pair(0, 1), make_pair(6, 7)}, {make_pair(0, 4), make_pair(3, 7)}, {make_pair(0, 3), make_pair(4, 7)}),
-/*127*/ lookup({make_pair(6, 7)}, {make_pair(3, 7)}, {make_pair(4, 7)}),
+/*124*/ lookup({make_pair(7, 6)}, {make_pair(0, 4), make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7)}),
+/*125*/ lookup({make_pair(0, 1), make_pair(7, 6)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(1, 2), make_pair(4, 7)}),
+/*126*/ lookup({make_pair(0, 1), make_pair(7, 6)}, {make_pair(0, 4), make_pair(3, 7)}, {make_pair(0, 3), make_pair(4, 7)}),
+/*127*/ lookup({make_pair(7, 6)}, {make_pair(3, 7)}, {make_pair(4, 7)}),
 };
 
 void rune(int lookup_index, vector<int> vertex) {
@@ -317,7 +275,7 @@ void rune(int lookup_index, vector<int> vertex) {
             else if (cube.X.at(a).first == 4) {
                 x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 1, 0);            
             }
-            else {
+            else { // 7
                 x = point(interpolate(vertex.at(cube.X.at(a).first), vertex.at(cube.X.at(a).second)), 1, 1);            
             }
             for (int b = 0; b < cube.Y.size(); ++b) {
@@ -330,7 +288,7 @@ void rune(int lookup_index, vector<int> vertex) {
                 else if (cube.Y.at(b).first == 2) {
                     y = point(1, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 1);            
                 }
-                else {
+                else { // 3
                     y = point(0, interpolate(vertex.at(cube.Y.at(b).first), vertex.at(cube.Y.at(b).second)), 1);            
                 }
                 for (int c = 0; c < cube.Z.size(); ++c) {
@@ -343,7 +301,7 @@ void rune(int lookup_index, vector<int> vertex) {
                     else if (cube.Z.at(c).first == 5) {
                         z = point(1, 1, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
                     }
-                    else {
+                    else { // 4
                         z = point(0, 1, interpolate(vertex.at(cube.Z.at(c).first), vertex.at(cube.Z.at(c).second)));
                     }
                     cube.triangle_pts.push_back(triangle(x, y, z));
@@ -376,7 +334,6 @@ void rune(int lookup_index, vector<int> vertex) {
         cube.triangle_pts.push_back(t2); 
     }    
 
-    // case of only Z, will have 2 unique cases, incomplete
     else if (!cube.X.size() && !cube.Y.size() && cube.Z.size()) {
         triangle t1(point(0, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
                     point(1, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))), 
