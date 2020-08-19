@@ -141,7 +141,7 @@ vector<lookup> table = {
 /*45*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(1, 2), make_pair(5, 6)}),
 /*46*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {make_pair(2, 6), make_pair(3, 7)}, {make_pair(0, 3), make_pair(5, 6)}),
 /*47*/  lookup({make_pair(4, 5)}, {make_pair(0, 4), make_pair(3, 7), make_pair(2, 6)}, {make_pair(5, 6)}),
-/*48*/  lookup({}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(4, 7), make_pair(5, 6)}),        
+/*48*/  lookup({}, {make_pair(0, 4), make_pair(1, 5)}, {make_pair(4, 7), make_pair(5, 6)}),
 /*49*/  lookup({make_pair(0, 1)}, {make_pair(1, 5)}, {make_pair(0, 3), make_pair(4, 7), make_pair(5, 6)}),
 /*50*/  lookup({make_pair(0, 1)}, {make_pair(0, 4)}, {make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
 /*51*/  lookup({}, {}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6), make_pair(4, 7)}),
@@ -149,7 +149,7 @@ vector<lookup> table = {
 /*53*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
 /*54*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(0, 4), make_pair(2, 6)}, {make_pair(4, 7), make_pair(5, 6)}),
 /*55*/  lookup({make_pair(3, 2)}, {make_pair(2, 6)}, {make_pair(0, 3), make_pair(5, 6), make_pair(4, 7)}),
-/*56*/  lookup({make_pair(3, 2)}, {make_pair(0, 4), make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3)}, make_pair(4, 7), make_pair(5, 6)),
+/*56*/  lookup({make_pair(3, 2)}, {make_pair(0, 4), make_pair(1, 5), make_pair(3, 7)}, {make_pair(0, 3), make_pair(4, 7), make_pair(5, 6)}),
 /*57*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(1, 5), make_pair(3, 7)}, {make_pair(4, 7), make_pair(5, 6)}),
 /*58*/  lookup({make_pair(0, 1), make_pair(3, 2)}, {make_pair(0, 4), make_pair(3, 7)}, {make_pair(0, 3), make_pair(1, 2), make_pair(4, 7), make_pair(5, 6)}),
 /*59*/  lookup({make_pair(3, 2)}, {make_pair(3, 7)}, {make_pair(4, 7), make_pair(5, 6), make_pair(1, 2)}),
@@ -334,6 +334,7 @@ void rune(int lookup_index, vector<int> vertex) {
         cube.triangle_pts.push_back(t2); 
     }    
 
+    // case of only Z
     else if (!cube.X.size() && !cube.Y.size() && cube.Z.size()) {
         triangle t1(point(0, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
                     point(1, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))), 
@@ -346,19 +347,233 @@ void rune(int lookup_index, vector<int> vertex) {
     }
 
     else if (!cube.X.size() && cube.Y.size() && cube.Z.size()) {
-
+        // unique case here
+        if ((cube.Y.size() == 4) && (cube.Z.size() == 4)) {
+            if (vertex.at(cube.Y.at(0).first) > vertex.at(cube.Y.at(0).second)) {
+                triangle t1(point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 1),
+                            point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 1),
+                            point(1, 1, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                triangle t2(point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 1),
+                            point(0, 1, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                            point(1, 1, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                cube.triangle_pts.push_back(t1);
+                cube.triangle_pts.push_back(t2);
+                triangle t3(point(1, interpolate(vertex.at(cube.Y.at(2).first), vertex.at(cube.Y.at(2).second)), 0),
+                            point(0, interpolate(vertex.at(cube.Y.at(3).first), vertex.at(cube.Y.at(3).second)), 0),
+                            point(0, 0, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+                triangle t4(point(1, interpolate(vertex.at(cube.Y.at(2).first), vertex.at(cube.Y.at(2).second)), 0),
+                            point(1, 0, interpolate(vertex.at(cube.Z.at(2).first), vertex.at(cube.Z.at(2).second))),
+                            point(0, 0, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+                cube.triangle_pts.push_back(t3);
+                cube.triangle_pts.push_back(t4);
+                
+            }
+            else {
+                triangle t1(point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 1),
+                            point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 1),
+                            point(0, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                triangle t2(point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 1),
+                            point(1, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                            point(0, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                cube.triangle_pts.push_back(t1);
+                cube.triangle_pts.push_back(t2);
+                triangle t3(point(0, interpolate(vertex.at(cube.Y.at(2).first), vertex.at(cube.Y.at(2).second)), 1),
+                            point(1, interpolate(vertex.at(cube.Y.at(3).first), vertex.at(cube.Y.at(3).second)), 1),
+                            point(1, 1, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+                triangle t4(point(0, interpolate(vertex.at(cube.Y.at(2).first), vertex.at(cube.Y.at(2).second)), 1),
+                            point(0, 1, interpolate(vertex.at(cube.Z.at(2).first), vertex.at(cube.Z.at(2).second))),
+                            point(1, 1, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+                cube.triangle_pts.push_back(t3);
+                cube.triangle_pts.push_back(t4);
+            }
+        }
+        else {
+            
+        }
     }
     else if (!cube.Y.size() && cube.X.size() && cube.Z.size()) {
-        
+        // unique case here
+        if ((cube.X.size() == 4) && (cube.Z.size() == 4)) {
+            if (vertex.at(cube.X.at(0).first) > vertex.at(cube.X.at(0).second)) {
+                triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                            point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 1, 1),
+                            point(1, 1, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                            point(1, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                            point(1, 1, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                cube.triangle_pts.push_back(t1);
+                cube.triangle_pts.push_back(t2);
+                triangle t3(point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 0),
+                            point(interpolate(vertex.at(cube.X.at(3).first), vertex.at(cube.X.at(3).second)), 0, 0),
+                            point(0, 0, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+                triangle t4(point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 0),
+                            point(0, 1, interpolate(vertex.at(cube.Z.at(2).first), vertex.at(cube.Z.at(2).second))),
+                            point(0, 0, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+                cube.triangle_pts.push_back(t3);
+                cube.triangle_pts.push_back(t4);
+                
+            }
+            else {
+                triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                            point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 1, 1),
+                            point(0, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 1),
+                            point(1, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                            point(0, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                cube.triangle_pts.push_back(t1);
+                cube.triangle_pts.push_back(t2);
+                triangle t3(point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 0),
+                            point(interpolate(vertex.at(cube.X.at(3).first), vertex.at(cube.X.at(3).second)), 0, 0),
+                            point(1, 1, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+                triangle t4(point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 0),
+                            point(1, 0, interpolate(vertex.at(cube.Z.at(2).first), vertex.at(cube.Z.at(2).second))),
+                            point(1, 1, interpolate(vertex.at(cube.Z.at(3).first), vertex.at(cube.Z.at(3).second))));
+                cube.triangle_pts.push_back(t3);
+                cube.triangle_pts.push_back(t4);
+            }
+        }
+        else {
+            if (cube.X.at(0).first == 0) {
+                if (cube.Z.at(0).first == 0) {
+                    triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                                point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 1, 1),
+                                point(0, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                    triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 1),
+                                point(1, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                                point(0, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                    cube.triangle_pts.push_back(t1);
+                    cube.triangle_pts.push_back(t2);
+                }
+                else {
+                    triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                                point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 1, 1),
+                                point(1, 1, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                    triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                                point(1, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                                point(1, 1, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                    cube.triangle_pts.push_back(t1);
+                    cube.triangle_pts.push_back(t2);
+                }
+            }
+            else {
+                if (cube.Z.at(0).first == 0) {
+                    triangle t3(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 0),
+                                point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 0, 0),
+                                point(0, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                    triangle t4(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 0),
+                                point(0, 1, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                                point(0, 0, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                    cube.triangle_pts.push_back(t3);
+                    cube.triangle_pts.push_back(t4);
+                }
+                else {
+                    triangle t3(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 0),
+                                point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 0, 0),
+                                point(1, 1, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                    triangle t4(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 0),
+                                point(1, 0, interpolate(vertex.at(cube.Z.at(0).first), vertex.at(cube.Z.at(0).second))),
+                                point(1, 1, interpolate(vertex.at(cube.Z.at(1).first), vertex.at(cube.Z.at(1).second))));
+                    cube.triangle_pts.push_back(t3);
+                    cube.triangle_pts.push_back(t4);
+                }
+            }
+        }
     }
     else if (!cube.Z.size() && cube.X.size() && cube.Y.size()) {
-        
+        // unique case here
+        if ((cube.X.size() == 4) && (cube.Y.size() == 4)) {
+            if (cube.X.at(0).first > cube.X.at(0).second) {
+                triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 0),
+                            point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 0, 1),
+                            point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 0));
+                triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                            point(1, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 0),
+                            point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 1));
+                cube.triangle_pts.push_back(t1);
+                cube.triangle_pts.push_back(t2);
+                triangle t3(point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 0),
+                            point(interpolate(vertex.at(cube.X.at(3).first), vertex.at(cube.X.at(3).second)), 1, 1),
+                            point(0, interpolate(vertex.at(cube.Y.at(3).first), vertex.at(cube.Y.at(3).second)), 1));
+                triangle t4(point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 1),
+                            point(0, interpolate(vertex.at(cube.Y.at(2).first), vertex.at(cube.Y.at(2).second)), 1),
+                            point(0, interpolate(vertex.at(cube.Y.at(3).first), vertex.at(cube.Y.at(3).second)), 0));
+                cube.triangle_pts.push_back(t3);
+                cube.triangle_pts.push_back(t4);
+                
+            }
+            else {
+                triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 0),
+                            point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 0, 1),
+                            point(0, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 1));
+                triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                            point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 1),
+                            point(0, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 0));
+                cube.triangle_pts.push_back(t1);
+                cube.triangle_pts.push_back(t2);
+                triangle t3(point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 0),
+                            point(interpolate(vertex.at(cube.X.at(3).first), vertex.at(cube.X.at(3).second)), 1, 1),
+                            point(1, interpolate(vertex.at(cube.Y.at(3).first), vertex.at(cube.Y.at(3).second)), 0));
+                triangle t4(point(interpolate(vertex.at(cube.X.at(2).first), vertex.at(cube.X.at(2).second)), 1, 1),
+                            point(1, interpolate(vertex.at(cube.Y.at(2).first), vertex.at(cube.Y.at(2).second)), 0),
+                            point(1, interpolate(vertex.at(cube.Y.at(3).first), vertex.at(cube.Y.at(3).second)), 1));
+                cube.triangle_pts.push_back(t3);
+                cube.triangle_pts.push_back(t4);
+            }
+        }
+        else {
+            if (cube.X.at(0).first == 0) {
+                if (cube.Y.at(0).first == 0) {
+                    triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 0),
+                                point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 0, 1),
+                                point(0, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 1));
+                    triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                                point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 1),
+                                point(0, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 0));
+                    cube.triangle_pts.push_back(t1);
+                    cube.triangle_pts.push_back(t2);
+                }
+                else {
+                    triangle t1(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 0),
+                                point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 0, 1),
+                                point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 0));
+                    triangle t2(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 0, 1),
+                                point(1, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 0),
+                                point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 1));
+                    cube.triangle_pts.push_back(t1);
+                    cube.triangle_pts.push_back(t2);
+                }
+            }
+            else {
+                if (cube.Y.at(0).first == 0) {
+                    triangle t3(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 0),
+                                point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 1, 1),
+                                point(0, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 1));
+                    triangle t4(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 1),
+                                point(0, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 1),
+                                point(0, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 0));
+                    cube.triangle_pts.push_back(t3);
+                    cube.triangle_pts.push_back(t4);
+                }
+                else {
+                    triangle t3(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 0),
+                                point(interpolate(vertex.at(cube.X.at(1).first), vertex.at(cube.X.at(1).second)), 1, 1),
+                                point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 0));
+                    triangle t4(point(interpolate(vertex.at(cube.X.at(0).first), vertex.at(cube.X.at(0).second)), 1, 1),
+                                point(1, interpolate(vertex.at(cube.Y.at(0).first), vertex.at(cube.Y.at(0).second)), 0),
+                                point(1, interpolate(vertex.at(cube.Y.at(1).first), vertex.at(cube.Y.at(1).second)), 1));
+                    cube.triangle_pts.push_back(t3);
+                    cube.triangle_pts.push_back(t4);
+                }
+            }
+        }
     }
-    else continue;
+    // else continue;
 
     cout << "triangle_pts.size(): " << cube.triangle_pts.size() << endl;
 
     cout << "done interpolate\n";
+
+    cout << "------------------------------------------------------------------------\n"; 
 
     // glColor3f(1,0,0);
     // glBegin(GL_TRIANGLES);
@@ -378,6 +593,8 @@ void rune(int lookup_index, vector<int> vertex) {
              << cube.triangle_pts.at(i).z.getz() << endl;
         cout << "triangle " << i + 1 << " complete" << endl;
 
+        cout << "------------------------------------------------------------------------\n";
+
         // glVertex3f(cube.triangle_pts.at(i).x.getx(),cube.triangle_pts.at(i).x.gety(),cube.triangle_pts.at(i).x.getz());
         // glVertex3f(cube.triangle_pts.at(i).y.getx(),cube.triangle_pts.at(i).y.gety(),cube.triangle_pts.at(i).y.getz());
         // glVertex3f(cube.triangle_pts.at(i).z.getx(),cube.triangle_pts.at(i).z.gety(),cube.triangle_pts.at(i).z.getz());
@@ -388,7 +605,7 @@ void rune(int lookup_index, vector<int> vertex) {
 int main() {
     cout << "hello world" << endl;
 
-    vector <int> sample = {1,-2,-3,-2,-2,-6,-7,-8};
+    vector <int> sample = {-1,2,-3,2,-2,6,7,8};
 
     int lookup_index = 0;
 
