@@ -127,7 +127,7 @@ vector<lookup> table = {
 /*31*/  lookup({make_pair(4, 5)}, {make_pair(1, 5), make_pair(2, 6), make_pair(3, 7)}, {make_pair(4, 7)}),
 /*32*/  lookup({make_pair(4, 5)}, {make_pair(1, 5)}, {make_pair(5, 6)}),
 /*33*/  lookup({make_pair(4, 5), make_pair(0, 1)}, {make_pair(1, 5), make_pair(0, 4)}, {make_pair(5, 6), make_pair(0, 3)}),
-/*34*/  lookup({make_pair(4, 5), make_pair(0, 1)}, {}, {make_pair(5, 6), make_pair(1, 2)}),
+/*34*/  lookup({make_pair(0, 1), make_pair(4, 5)}, {}, {make_pair(1, 2), make_pair(5, 6)}),
 /*35*/  lookup({make_pair(4, 5)}, {make_pair(0, 4)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),
 /*36*/  lookup({make_pair(4, 5), make_pair(3, 2)}, {make_pair(1, 5), make_pair(2, 6)}, {make_pair(1, 2), make_pair(5, 6)}),
 /*37*/  lookup({make_pair(0, 1), make_pair(3, 2), make_pair(4, 5)}, {make_pair(0, 4), make_pair(1, 5), make_pair(2, 6)}, {make_pair(0, 3), make_pair(1, 2), make_pair(5, 6)}),
